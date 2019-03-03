@@ -1,0 +1,32 @@
+{% load static %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+{% endblock %}  
+{% block content %}
+<div class= "box">
+
+    <div class='left-panel'>
+        <ul>  
+            <li class= "active"><a href="#" >Home</a></li>
+            
+        {% for category in categories  %}
+            <li><a href="#{{category}}">{{category}}</a></li>
+            <hr>
+        {% endfor %}
+        </ul>  
+    </div>
+    <div class='right-panel'>
+        <div class= "pic-name" ><h1 class="active">Pic Name</h1></div>
+        <div class="pic-info">
+            <p>Pic Description</p>
+            <h2>Location</h2>
+        </div>
+        <div class= right-slider>
+            {% comment %} {% for image in images %}
+                <img src="{{image.img.url}}" alt ="Image" style="width:400px; height:400px;">
+            {% endfor %} {% endcomment %}
+        </div>
+    </div>  
+</div>
+{% endblock  %}
