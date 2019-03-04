@@ -1,0 +1,9 @@
+$font: 'Lato', sans-serif;
+
+@mixin fonts($color,$size,$weight: 500,$family: $font) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+

@@ -30,8 +30,8 @@
         <div class="popup">
             {% for image in images %}
                 <img src="{{image.img.url}}" alt ="Image" style="width:250px; height:250px;" class="wildlife" id="{{image.description}}">
-                <input type="text" value="localhost:8000{{image.img.url}}" id="myInput">
-                <button class="btn btn-primary" onclick="myFunction()">Copy text</button>
+                <span><input type="text" value="localhost:8000{{image.img.url}}" id="p{{image.id}}"></span>
+                <button class="btn btn-primary" id="{{image.id}}">Copy text</button>
             {% endfor %}
         </div>
         <div class="show">

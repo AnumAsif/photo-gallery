@@ -13,13 +13,18 @@ $(document).ready(function(){
         $(".show").fadeOut();
     });
     
+    $('.btn').click(function(){
+        var $inputid = $(this).attr("id");
+        var copyText = document.getElementById('p'+$inputid);
+  
+        copyText.select();
+      
+        document.execCommand("copy");
+      
+        alert("Copied the text: " + copyText.value);
+
+    });
+   
 });
-function myFunction() {
-    var copyText = document.getElementById("myInput");
-  
-    copyText.select();
-  
-    document.execCommand("copy");
-  
-    alert("Copied the text: " + copyText.value);
-  }
+
+

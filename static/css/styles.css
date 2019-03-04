@@ -25,7 +25,9 @@
 }
 .left-panel ul hr{
     border-color: #9E8D90;
-    border-width: 2px;
+    border-width: 2px;.img-desc button{
+    
+    }
     margin-right: 20px;
     border-radius: 10px;
     margin-top: 0;
@@ -143,7 +145,4 @@ p.top{
   
 
 /*     cursor: pointer; */
-}
-.img-desc button{
-    
 }

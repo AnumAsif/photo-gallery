@@ -1,3 +1,8 @@
 {
-    "python.pythonPath": "virtual/bin/python"
+    "python.pythonPath": "virtual/bin/python",
+    "liveSassCompile.settings.formats": [
+        {
+            "savePath": "static/css"
+        }
+    ]
 }
