@@ -1,0 +1,59 @@
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{% comment %} <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js" ></script> {% endcomment %}
+<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
+{% endblock %}  
+  
+{% block content %}
+
+<div class= "box">
+
+    <div class='left-panel'>
+        <ul>  
+            <li><a href="{% url 'index' %}" >Home</a></li>
+            
+        {% for category in categories  %}
+            <li><a href="{% url 'categorypics' category.id%}">{{category}}</a></li>
+            <hr>
+        {% endfor %}
+        </ul>  
+    </div>
+    <div class='right-panel'>
+        {% comment %} <div class= "pic-name" ><h1 class="active">MY PHOTO GALLERY</h1></div>
+        <div class="pic-info">
+        </div>
+        <p class="top">“To me, photography is an art of observation. It’s about finding something interesting in an ordinary place… I’ve found it has little to do with the things you see and everything to do with the way you see them.”
+            — <strong>Elliott Erwitt</strong></p> {% endcomment %}
+        <div class="popup">
+            {% for image in images %}
+                <img src="{{image.img.url}}" alt ="Image" style="width:250px; height:250px;" class="wildlife" id="{{image.description}}">
+                <input type="text" value="localhost:8000{{image.img.url}}" id="myInput">
+                <button class="btn btn-primary" onclick="myFunction()">Copy text</button>
+            {% endfor %}
+        </div>
+        <div class="show">
+            <div class="overlay"></div>
+            <div class="img-desc">
+                <div class="img-show">
+                    <span>X</span>
+                    <img src="">
+                </div>
+                <p><strong>Description:</strong></p>
+              
+            </div>
+            {% comment %} <div class="img-desc">
+                <p style="color:white; font-size:40px;"><strong>Description:</strong></p>
+            </div> {% endcomment %}
+        </div>
+<!--End image popup-->
+        {% comment %} <div class= "right-slider" >
+            {% for image in images %}
+                <img src="{{image.img.url}}" alt ="Image" style="width:250px; height:250px;" id="wildlife">
+            {% endfor %}
+        </div> {% endcomment %}
+    </div>  
+</div>
+{% endblock  %}

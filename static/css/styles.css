@@ -1,6 +1,8 @@
 .box{
     width:100%;
     height:100%;
+    margin:-10px;
+    padding:0;
     font-family: 'Lato', sans-serif;
 }
 .left-panel{
@@ -33,7 +35,7 @@
     text-decoration: none;
     color:#f7f7f7;
 }
-.active, li:hover{
+.active{
    
     background-color: #9E8D90;
     color:#f7f7f7;
@@ -49,13 +51,99 @@
     padding-top: 25px;
     background-repeat: no-repeat;
     background-size: cover;
-}
+    padding-left:30px;
+}    
 .right-panel .active{
     margin-left:0;
     width:fit-content;
     height:30px;
     padding:10px;
     padding-left:40px;
-    padding-right:100px;
+    padding-right:140px;
     font-weight: 100; 
+    color: #32283D;
 }    
+
+p.top{
+    position:relative;
+    color: #f7f7f7;
+    z-index:60;
+    width:25%;
+    margin-left: 50px;
+    font-size:30px;
+    top:-400px;
+    /* size:inherit; */
+}
+.pic-info{
+    background-color: #32283D;
+    z-index:-5;
+    width:30%;
+    height:400px;
+    margin-left:20px;
+    opacity:0.6;
+    /* size:inherit; */
+    /* color:#f7f7f7; */
+   
+}
+.left-panel ul li a:active{
+    background-color: #9E8D90;
+    color:#f7f7f7;
+}
+.wildlife{
+    border:5px solid #9E8D90; 
+    border-radius: 20px;
+    margin:20px;
+}
+/* xxxxxxxxx */
+.show{
+    z-index: 999;
+    display: none;
+}
+.show .overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.show .img-show{
+    width: 600px;
+    height: 400px;
+    background: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden
+}
+.img-show span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+}
+.img-show img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img-desc p{
+    color:#f7f7f7;
+    position: relative;
+    text-align:center;
+    z-index: 99;
+    margin-top:400px;
+    margin-right:380px;
+ 
+  
+
+/*     cursor: pointer; */
+}
+.img-desc button{
+    
+}

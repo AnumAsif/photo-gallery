@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'thegallery.apps.ThegalleryConfig',
     'bootstrap3',
+    'jquery',
 ]
 
 MIDDLEWARE = [
