@@ -4,7 +4,10 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns=[
-    url(r'^$',views.gallery,name = 'photogallery'),
+    url(r'^$',views.index,name = 'index'),
+    url(r'^gallery/(\d+)',views.gallery, name= 'categorypics'),
+    url(r'^gallery/location/(\d+)', views.gallery_by_location, name="locationpics"),   
+    url(r'^search/', views.search_results, name='search_results')    
 ]
 
 if settings.DEBUG:
