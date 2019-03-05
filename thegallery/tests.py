@@ -37,21 +37,21 @@ class ImagesTestClass(TestCase):
 
     # Set up method
     def setUp(self):
-        self.location1 = Location(location_name="pakistan")
+        self.locationone = Location(location_name="pakistan")
+        self.locationone.save_location()
         self.category1 = categories(category_name = "wild")
+        self.category1.save()
         self.category2 = categories(category_name = "nature")
-        self.newImg= Image(name = 'waterfall', description ='taken at karura forest', img ="/waterfall.jpeg",location=self.location1)
-
+        self.newImg= Image(name = 'waterfall', description ='taken at karura forest', img ="/waterfall.jpeg",location=self.locationone)
+        self.newImg.save()
     # Testing  instance
     def test_instance(self):
         self.assertTrue(isinstance(self.newImg,Image))
        
       # Testing Save Method
     def test_save_method(self):
-        self.location1.save_location()
-        self.newImg.save_image()
-        images = Image.objects.all()
-        self.assertTrue(len(images) > 0)    
+        self.images = Image.objects.all()
+        self.assertTrue(len(self.images) > 0)    
 
 
     #       name = models.CharField(max_length=50)
