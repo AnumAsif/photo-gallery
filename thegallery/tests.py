@@ -16,7 +16,12 @@ class LocationTestClass(TestCase):
     def test_save_method(self):
         self.pakistan.save_location()
         locations = Location.objects.all()
-        self.assertTrue(len(locations) > 0)     
+        self.assertTrue(len(locations) > 0)  
+
+    def test_get_location(self):
+        self.pakistan.save_location()
+        locations = Location.get_location()
+        self.assertTrue(len(locations)>0)       
 
 class CategoryTestClass(TestCase):
 
@@ -31,7 +36,13 @@ class CategoryTestClass(TestCase):
     def test_save_method(self):
         self.nature.save_category()
         category = categories.objects.all()
-        self.assertTrue(len(category) > 0)      
+        self.assertTrue(len(category) > 0)    
+
+    def test_get_categories(self):
+        self.nature.save_category()
+        img_categories = categories.get_categories()
+        self.assertTrue(len(img_categories)>0)       
+      
 
 class ImagesTestClass(TestCase):
 
@@ -53,7 +64,14 @@ class ImagesTestClass(TestCase):
         self.images = Image.objects.all()
         self.assertTrue(len(self.images) > 0)    
 
+    def test_get_images(self):
+        self.images = Image.get_images()
+        self.assertTrue(len(self.images)>0)
 
+    def test_get_image_by_category(self):
+
+        self.image = Image.get_image_by_category(self.category1)
+        self.assertIsNotNone(self.image)         
     #       name = models.CharField(max_length=50)
     # description = models.TextField()
     # img= models.ImageField(height_field=None, width_field=None, max_length=None)

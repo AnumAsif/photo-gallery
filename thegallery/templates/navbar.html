@@ -1,5 +1,29 @@
-<nav>
-    <ul>
-        <li><a href="">Home</a></li>
-    </ul>
-</nav>
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+ <div class='left-panel'>
+        <form role="search" action="{% url 'search_results' %}">
+
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search Category" name="image">
+                <div class="input-group-btn">
+                    <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+        </form>
+        <ul> 
+            
+            <li class= "home"><a href="{% url 'index'%}" ><i class="fas fa-home"></i></a></li>
+            <h1>View By Category</h1>
+        {% for category in categories  %}
+            <li><a href="{% url 'categorypics' category.id%}#{{category}}" onClick="">{{category}}</a></li>
+            
+        {% endfor %}
+        </ul>
+        <ul  class="location-list"> 
+            <h1>View By Location</h1>
+            {% for location in locations  %}
+                <li><a href="{% url 'locationpics' location.id%}" onClick="">{{location}}</a></li>
+            
+            {% endfor %}
+        </ul>
+    </div>

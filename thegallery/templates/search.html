@@ -1,34 +1,29 @@
 {% load static %}
+{% load bootstrap3 %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{% comment %} <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js" ></script> {% endcomment %}
+<script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+
 {% block styles %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,900" rel="stylesheet">
 {% endblock %}  
 {% block content %}
 <div class= "box">
 
-    <div class='left-panel'>
-        <ul>  
-            <li class= "active"><a href="#" >Home</a></li>
-            
-        {% for category in categories  %}
-            <li><a href="{% url 'categorypics' category.id%}#{{category}}" onClick="">{{category}}</a></li>
-            <hr>
-        {% endfor %}
-        </ul> 
-        
-    </div>
+    {% include 'navbar.html' %}
     <div class='right-panel'>
-        <div class="row">
-            {% if images%}
-            <h2>Found {{ images|length }} of searched term {{category}}</h2>
-            {% else %}
-            <h2> Found 0 images for the searched category {{category}}</h2>
-            {% endif %}
-
-        </div>
-        <div class="popup">
+          <div class="popup">
             {% for image in images %}
-                <img src="{{image.img.url}}" alt ="Image" style="width:250px; height:250px;" class="wildlife" id="{{image.description}}">
+                <div class="image-card">
+                    <div class="wildlife">
+                        <img src="{{image.img.url}}" alt ="Image" id="{{image.description}}">
+                        <span><input class="url-field" type="text" value="https://galleryofpics.herokuapp.com{{image.img.url}}" id="p{{image.id}}"></span>
+                    </div>
+                    
+                    <button class="copy-btn btn btn-primary" id="{{image.id}}"><i class="fas fa-clone"></i></button>
+                </div>
             {% endfor %}
         </div>
         <div class="show">
@@ -39,19 +34,11 @@
                     <img src="">
                 </div>
                 <p><strong>Description:</strong></p>
-                <button>copy</button>
+              
             </div>
-            {% comment %} <div class="img-desc">
-                <p style="color:white; font-size:40px;"><strong>Description:</strong></p>
-            </div> {% endcomment %}
+          
         </div>
-         
-        {% comment %} <div class= "pic-name" ><h1 class="active">MY PHOTO GALLERY</h1></div>
-        <div class="pic-info">
-        </div>
-        <p class="top">“To me, photography is an art of observation. It’s about finding something interesting in an ordinary place… I’ve found it has little to do with the things you see and everything to do with the way you see them.”
-            — <strong>Elliott Erwitt</strong></p>
-         {% endcomment %}
+     
     </div>  
 </div>
 {% endblock  %}
